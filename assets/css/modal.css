@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* Modal windows */
+
+#modal {
+    display: none;
+}
+
+h1 {
+    position: relative;
+    box-sizing: border-box;
+    top: 10px;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+input::selection {
+    color: white; /* Цвет текста */
+    background: #cee2fd; /* Цвет фона */
+}
+
+.center {
+    left: 50%;
+    margin-left: -75px;
+}
+
+.right {
+    float: right !important;
+}
+
+.text-input {
+    position: relative;
+    width: 100%;
+    border: 2px solid rgba(206, 226, 253, 1.0);
+    border-radius: 5px/50%;
+    background: rgba(0,0,0,.25);
+    padding: 5px 10px;
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #cee2fd;
+}
+
+.text-input:focus {
+    outline: none;
+    box-shadow: 0px 0px 25px -12px rgba(206, 226, 253, 1.0);
+}
+
+.hide {
+    display: none;    
+}
+
+.modal-wrap {
+    position: absolute;
+    width: 720px;
+    height: 1280px;
+    top: 0;
+    left: 0;
+    background-blend-mode: overlay;
+}
+
+.modal-body {
+    box-sizing: content-box;
+    padding: 0;
+    box-shadow: 0px 0px 25px -12px rgba(206, 226, 253, 1.0), 0px 0px 50px -24px rgba(206, 226, 253, 1.0) inset;
+    background: url('../img/background/modal.png');
+    border: 2px solid rgba(206, 226, 253, 1.0);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 20px/25%;
+    backdrop-filter: blur(10px) saturate(180%);
+    color: rgba(206, 226, 253, 1.0);
+}
+
+.modal-body.big {
+    width: 620px;
+    height: 480px;
+    margin: 330px auto;
+}
+
+.modal-body.middle {
+    width: 560px;
+    height: 420px;
+    margin: 330px auto;
+}
+
+.modal-body.small {
+    width: 480px;
+    height: 380px;
+    margin: 330px auto; 
+}
+
+.btn-close {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 340px;
+    right: 70px;
+    background: url("/assets/img/ui/elements/close.btn.svg");
+    cursor: pointer;
+}
+
+.modal-body.small .btn-close {
+    top: 340px;
+    right: 140px;
+}
+
+.modal-content {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: -30px;
+    padding: 50px 20px 10px;
+}
+
+.modal-content.h-100 {
+    height: 100%;
+}
+
+.modal-content.h-95 {
+    height: 95%;
+}
+
+.modal-content.h-90 {
+    height: 90%;
+}
+
+.modal-content.h-80 {
+    height: 80%;
+}
+
+.modal-choice {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.modal-choice.h-20 {
+    height: 20%;
+}
+
+.modal-choice.h-0 {
+    height: 0;
+}
+
+.btn {
+    position: relative;
+    float: left;
+    width: 150px;
+    height: 30px;
+    line-height: 26px;
+    border: 2px solid rgba(206, 226, 253, 1.0);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 5px/50%;
+    text-align: center;
+    color: rgba(206, 226, 253, 1.0);
+    /*background: rgba(206, 226, 253, .1);*/
+    transition: color .5s, box-shadow .5s;
+    box-shadow: 0px 0px 25px -12px rgba(206, 226, 253, 0.0), 0px 0px 25px -12px rgba(206, 226, 253, 1.0) inset;
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 0px 0px 25px -12px rgba(206, 226, 253, 1.0), 0px 0px 20px 20px rgba(206, 226, 253, 1.0) inset;
+    /*background: rgba(206, 226, 253, .7);*/
+    color: rgba(39, 90, 93, 1.0);
+    font-weight: 500;
+}
+
+.btn.prev-btn {
+    left: 50%;
+    margin-left: -160px;
+}
+
+.btn.next-btn {
+    left: 50%;
+    margin-left: 10px;
+}
+
+.btn.ok-btn {
+    left: 50%;
+    margin-left: -75px;
+}
+
+.single-text {
+    position: relative;
+    top: 50px;
+    padding-bottom: 15px;
+}
+
+.alias-text {
+    position: relative;
+    top: 50px;
+    padding-bottom: 15px;
+}
+
+.alias-input {
+    top: 50px;
+}
+
+.rating-item {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    height: 90px;
+    margin: 5px 0;
+    padding: 0 40px;
+    font-size: 24px;
+}
+
+.rating-avatar {
+    position: relative;
+    float: left;
+    width: 90px;
+    height: 90px;
+    margin: 2px;
+    border: 2px solid #cee2fd;
+    border-radius: 50%;
+}
+
+.rating-avatar img {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rating-user-info {
+    position: relative;
+    float: left;
+    width: 555px;
+    top: 25px; /*Before no rank info*/
+    padding: 0 20px;
+}
+
+.ratting-user-name {
+    width: 555px;
+    height: 40px;
+    padding: 5px 0;
+}
+
+.rating-stat-info {
+    position: relative;
+    float: left;
+    width: 130px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.rating-user-level {
+    width: 120px;
+    height: 40px;
+    padding: 5px 0;
+}
+
+.rating-battle-stat {
+    width: 120px;
+    height: 40px;
+    padding: 5px 0;
+}
+
+.store-item {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    height: 75px;
+    padding: 7px 10px;
+    font-size: 24px;
+}
+
+.store-avatar {
+    position: relative;
+    float: left;
+    width: 160px;
+    height: 60px;
+}
+
+.store-avatar img {
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    top: 10px;
+    object-fit: cover;
+}
+
+.store-item-info {
+    position: relative;
+    float: left;
+    width: 450px;
+    padding: 0 20px;
+}
+
+.store-item-name {
+    width: 410px;
+    height: 60px;
+    padding: 5px 0;
+}
+
+.store-buy {
+    position: relative;
+    float: left;
+    width: 270px;
+    height: 60px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.store-price {
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 60px;
+    padding: 5px 0;
+}
+
+.buy-btn {
+    float: left;
+}
+
+/* Hangar styles */
+
+.hangar-item {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    height: 180px;
+    padding: 10px 40px;
+    font-size: 24px;
+}
+
+.hangar-avatar {
+    position: relative;
+    box-sizing: content-box;
+    float: left;
+    padding: 0 10px;
+}
+
+.hangar-avatar img {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+}
+
+.hangar-avatar-4 {
+    width: 40px;
+    height: 160px;
+}
+
+.hangar-avatar-4 img { 
+    width: 40px;
+    height: 160px;
+}
+
+.hangar-avatar-3 {
+    width: 40px;
+    height: 120px;
+    margin-top: 40px;
+}
+
+.hangar-avatar-3 img { 
+    width: 40px;
+    height: 120px;
+}
+
+.hangar-avatar-2 {
+    width: 40px;
+    height: 80px;
+    margin-top: 80px;
+}
+
+.hangar-avatar-2 img { 
+    width: 40px;
+    height: 80px;
+}
+
+.hangar-avatar-1 {
+    width: 40px;
+    height: 40px;
+    margin-top: 120px;
+}
+
+.hangar-avatar-1 img { 
+    width: 40px;
+    height: 40px;
+}
+
+.charge-item {
+    position: absolute;
+    box-sizing: content-box;
+    float: right;
+    width: 140px;
+    height: 140px;
+    right: 0px;
+    padding: 10px;
+}
+
+.charge-item img {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+}
+
+.charge-timer-item {
+    position: absolute;
+    width: 150px;
+    right: 170px;
+    top: 80px;
+    text-align: center;
+}
+
+.charge-count {
+    position: absolute;
+    width: 140px;
+    top: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+.charge-btn {
+    position: absolute;
+    width: 140px;
+    bottom: 0;
+}
+
+.charge-btn.block:hover {
+    color: rgba(206, 226, 253, 1.0);
+    transition: color .5s, box-shadow .5s;
+    box-shadow: 0px 0px 25px -12px rgba(206, 226, 253, 0.0), 0px 0px 25px -12px rgba(206, 226, 253, 1.0) inset;
+    cursor: default;
+}
+
+.store-item-info {
+    position: relative;
+    float: left;
+    width: 365px;
+    height: 160px;
+    padding: 0 20px;
+    line-height: 145px;
+}
+
+.store-item-name {
+    width: 410px;
+    height: 160px;
+    padding: 5px 0;
+}
+
+.store-buy {
+    position: relative;
+    float: left;
+    width: 175px;
+    height: 60px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.store-price {
+    position: relative;
+    float: left;
+    width: 155px;
+    height: 45px;
+    top: -20px;
+    padding: 5px 0;
+}
+
+.buy-btn {
+    float: left;
+    width: 155px;
+    height: 33px;
+    bottom: 20px;
+}
