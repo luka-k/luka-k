@@ -19,8 +19,8 @@ class Battle {
 
     create() {
         this.setPlayerInfo();
-        this.setFields();        
 
+        this.setFields();        
         this.setEnemyGround();
 
         this.state = 'wait';
@@ -29,10 +29,10 @@ class Battle {
     update() {}
 
     setFields() {
-        this.scene.playerField = this.scene.add.tileSprite(50,  250, 420, 420, 'p-grid');
+        this.scene.playerField = this.scene.add.tileSprite(90, 150, 540, 540, 'p-grid');
         this.scene.playerField.setOrigin(0, 0);
 
-        this.scene.enemyField = this.scene.add.tileSprite(530,  250, 420, 420, 'e-grid');
+        this.scene.enemyField = this.scene.add.tileSprite(90, 720, 540, 540, 'e-grid');
         this.scene.enemyField.setOrigin(0, 0);
     }
 
@@ -53,14 +53,12 @@ class Battle {
     }
 
     setPlayerInfo() {
-        this.playerName = this.scene.add.text(60, 210, api.user.alias, settings.fonts.menu);
-
+        this.playerName = this.scene.add.text(105, 125, api.user.alias, settings.fonts.menu);
         this.playerName.setOrigin(0, 0);
     }
 
     setEnemyInfo(enemy) {
-        this.enemyName = this.scene.add.text(540, 210, enemy.alias, settings.fonts.menu);
-
+        this.enemyName = this.scene.add.text(105, 695, enemy.alias, settings.fonts.menu);
         this.enemyName.setOrigin(0, 0);
     }
 

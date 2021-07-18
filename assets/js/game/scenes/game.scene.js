@@ -21,14 +21,10 @@ class GameScene extends Scene {
         this.background.create();
         this.menu.create();
         this.battle.create();
-        this.socket.create();
+        //this.socket.create();
     }
 
     update() {
-        const pointer = this.input.activePointer;
-
-        this.background.update(pointer);
-
         this.battle.update();
     }
 }

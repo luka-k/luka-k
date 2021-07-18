@@ -40,10 +40,10 @@ class PreloadScene extends Scene {
         this.load.image('score-icon', 'assets/img/ui/elements/score.icon.png');
         this.load.image('player-icon', 'assets/img/ui/elements/player.icon.png');
 
-        this.load.image('p-grid', 'assets/img/p-grid.png');
-        this.load.image('e-grid', 'assets/img/e-grid.png');
+        this.load.image('p-grid', 'assets/img/p-grid-2.png');
+        this.load.image('e-grid', 'assets/img/e-grid-2.png');
 
-        this.load.image('field', 'assets/img/field.png');
+        this.load.image('field', 'assets/img/field-2.png');
 
         this.load.spritesheet('ship.1.1.h', 'assets/img/game/ships/1/1-h.png', { frameWidth: 80, frameHeight: 80, endFrame: 5 });
         this.load.spritesheet('ship.1.1.v', 'assets/img/game/ships/1/1-v.png', { frameWidth: 80, frameHeight: 80, endFrame: 5 });

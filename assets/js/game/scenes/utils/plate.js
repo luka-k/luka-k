@@ -3,9 +3,9 @@ class Plate {
         this.game = game;
         this.chords = chords;
 
-        this.cellSize = 40;
-        this.marginX = type == "player" ? 60 : 540;
-        this.marginY = 260;
+        this.cellSize = 52;
+        this.marginX = 100;
+        this.marginY = type == "player" ? 250 : 730;
 
         this.fieldTemplate = 'field';
         this.boomTemplate = 'boom';

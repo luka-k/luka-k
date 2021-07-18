@@ -1,6 +1,6 @@
 class EnemyPlate extends Plate {
     constructor(game, chords) {
-        super("enemy", game, chords)
+        super("enemy", game, chords);
 
         this.used = false;
     }
