@@ -13,12 +13,8 @@ class Api {
     }
 
     init() {
-        this.getUserID();
-
-        this.auth();
-
         setInterval(() => {
-            //this.heartBeat();
+            this.heartBeat();
         }, 1000 * 60);
 
         setInterval(() => {
@@ -26,11 +22,26 @@ class Api {
         }, 1000);
     }
 
-    getUserID() {
-        this.userID = UrlHelper.get('vk_id');
+    auth(credential) {
+        this.xhr.clear();
+
+        this.xhr.method = 'POST';
+        this.xhr.url = '/auth';
+        this.xhr.handler = this.authHandler.bind(this);
+
+        this.xhr.body = {
+            "credential": credential
+        };
+
+        this.xhr.send();
     }
 
-    auth() {
+    authHandler(response) {
+
+        console.log(response);
+    }
+
+    authOld() {
         this.xhr.clear();
 
         this.xhr.method = 'POST';
@@ -46,7 +57,7 @@ class Api {
         this.xhr.send();
     }
 
-    authHandler(response) {
+    authHandlerOld(response) {
         if (!response.data) return false;
 
         localStorage.setItem('jwt-' + this.userID, response.data.token);

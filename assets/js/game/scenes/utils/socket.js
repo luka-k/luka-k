@@ -6,7 +6,7 @@ class Socket {
     }
 
     create() {
-        this.socket = new WebSocket(this.url + "?id=" + api.user.vk_id);
+        this.socket = new WebSocket(this.url + "?id=" + api.user.id);
 
         this.socket.onopen = this.socketOnOpen.bind(this);  
         this.socket.onclose = this.socketOnClose.bind(this);

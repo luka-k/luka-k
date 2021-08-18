@@ -4,6 +4,6 @@
 
  const env = {
     state: "dev", // dev|prod
-    apiUrl: "",
+    apiUrl: "http://localhost:8020",
     socketUrl: "ws://localhost:8030"
  }

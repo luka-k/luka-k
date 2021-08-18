@@ -13,13 +13,31 @@ class PreloadScene extends Scene {
     }
 
     create() {
-        this.loadMainScene();
+        google.accounts.id.initialize({
+            client_id: '313835682668-jinkjoq58qacurqmnmqrgnjn25fee46e.apps.googleusercontent.com',
+            callback: this.handleCredentialResponse.bind(this)
+        });
+    
+        google.accounts.id.prompt();
+    }
 
-        if (api.user.alias) return;
+    handleCredentialResponse(response) {
+
+        api.auth(response.credential);
         
-        modal = new AliasModal(this);
-        
-        modal.show();   
+        const intervalID = setInterval(() => {
+            if (!api.user) return;
+
+            this.loadMainScene();
+            
+            if (api.user.alias) return;
+            
+            let modal = new AliasModal(this);
+            
+            modal.show();
+
+            clearInterval(intervalID);
+        }, 100);
     }
 
     preloadImages() {
@@ -127,5 +145,13 @@ class PreloadScene extends Scene {
     loadMainScene() {
         this.scene.stop('preloadScene');
         this.scene.start('mainScene');
+    }
+
+    loadAliasModal() {
+        if (api.user.alias) return;
+        
+        modal = new AliasModal(this);
+        
+        modal.show();  
     }
 }

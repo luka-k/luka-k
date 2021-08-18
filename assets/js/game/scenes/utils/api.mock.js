@@ -1,70 +1,99 @@
 class ApiMock {
     constructor() {
+        this.xhr = new Xhr();
+
         this.servertime = 0;
 
         this.updated = false;
 
-        this.userID = "";
+        this.userID = 0;
         this.user = null;
 
         this.init();
     }
 
     init() {
-        this.getUserID();
-
-        this.auth();
-
         this.heartBeat();
         this.serverTime();
+    }
+
+    auth(credential) {
+        this.xhr.clear();
+
+        this.xhr.method = 'POST';
+        this.xhr.url = '/auth';
+        this.xhr.handler = this.authHandler.bind(this);
+
+        this.xhr.body = {
+            "credential": credential
+        };
+
+        this.xhr.send();
+    }
+
+    authHandler(response) {
+        if (!response.data) return false;
+
+        this.userID = response.data.userID;
+
+        localStorage.setItem('jwt-' + this.userID, response.data.token);
+
+        this.servertime = response.data.servertime;
 
         this.getUser();
     }
 
-    getUserID() {
-        this.userID = "123e4567-e89b-12d3-a456-426614174000"
-    }
-
-    auth() {
-        
-        localStorage.setItem(this.userID, "123e4567-e89b-12d3-a456-426614174000");
-
-        this.servertime = Math.round(new Date().getTime() / 1000); 
-    }
-
-    heartBeat() {
-        setInterval(() => {
-            console.log("Heartbeat");       
-        }, 1000 * 60);
-    }
-
-    serverTime() {
-        setInterval(() => {
-            this.servertime++;
-        }, 1000);
-    }
-
     getUser() {
+        this.xhr.clear();
+
+        this.xhr.jwt = true;
+        this.xhr.method = 'GET';
+        this.xhr.url = '/users/' + this.userID;
+        this.xhr.handler = this.getUserHandler.bind(this);
+
+        this.xhr.send();
+    }
+
+    getUserHandler(response) {
+        if (!response.data) return false;
+
         const oldUser = this.user;
-
-        this.user = {
-            userID: "123e4567-e89b-12d3-a456-426614174000",
-            alias: "lukazavr",
-            isBonus: false,
-            level: 1,
-            nano_crystall: 1000,
-            anty_crystall: 100,
-            wins: 2,
-            fails: 3
-        };
-
+        
+        this.user = response.data.user;
         this.updated = true;
-
-        this.showBunusModal();
+    
+        if (response.data.isBonus) {
+            const bonusModal = new BonusModal({
+                text: "Ежедневный бонус получен! +100 нанокристалов!"
+            });
+    
+            bonusModal.show();
+        }
 
         if (oldUser == null) return;
 
-        this.showLevelModal();
+        if (oldUser.level < this.user.level) {
+            let modalText = "Поздравляем! Ваш уровень стал - " + this.user.level;
+
+            if (oldUser.rankId < this.user.rankId) {
+                modalText += "<br><br>";
+                modalText += "Получено новое звание: " + this.user.rank.title;
+            }
+
+            const levelUpModal = new BonusModal({
+                text: modalText
+            });
+    
+            levelUpModal.show();    
+        }
+
+        if (this.user.haveBonus) {
+            const bonusModal = new BonusModal({
+                text: "Ежедневный бонус получен! +100 нанокристалов!"
+            });
+    
+            bonusModal.show();
+        }
     }
 
     showBunusModal() {
@@ -219,5 +248,17 @@ class ApiMock {
         this.xhr.handler = handler;
 
         this.xhr.send();
+    }
+
+    heartBeat() {
+        setInterval(() => {
+            console.log("Heartbeat");       
+        }, 1000 * 60);
+    }
+
+    serverTime() {
+        setInterval(() => {
+            this.servertime++;
+        }, 1000);
     }
 }
