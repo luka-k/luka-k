@@ -21,7 +21,7 @@ class GameScene extends Scene {
         this.background.create();
         this.menu.create();
         this.battle.create();
-        //this.socket.create();
+        this.socket.create();
     }
 
     update() {
