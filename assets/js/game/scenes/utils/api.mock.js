@@ -183,7 +183,7 @@ class ApiMock {
         this.xhr.url = '/users/' + this.userID + '/fleets';
 
         this.xhr.handler = function(response) {
-            modal.renderData(response.data); 
+            modal.renderHandler(response.data); 
         };
 
         this.xhr.send();

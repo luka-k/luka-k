@@ -58,8 +58,8 @@ input::selection {
 
 .modal-wrap {
     position: absolute;
-    width: 720px;
-    height: 1280px;
+    width: 540px;
+    height: 970px;
     top: 0;
     left: 0;
     background-blend-mode: overlay;
@@ -107,8 +107,8 @@ input::selection {
 }
 
 .modal-body.small .btn-close {
-    top: 340px;
-    right: 140px;
+    top: 10px;
+    right: 20px;
 }
 
 .modal-content {
@@ -175,9 +175,19 @@ input::selection {
     font-weight: 500;
 }
 
+.info-btns {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;    
+    width: 100%;
+    height: 30px;
+    bottom: 0px;
+    margin: 10px 0;
+}
+
 .btn.prev-btn {
     left: 50%;
-    margin-left: -160px;
+    margin-left: -149px;
 }
 
 .btn.next-btn {
@@ -212,39 +222,22 @@ input::selection {
     float: left;
     width: 100%;
     height: 90px;
-    margin: 5px 0;
-    padding: 0 40px;
+    margin: 10px 0;
+    padding: 0 15px;
     font-size: 24px;
-}
-
-.rating-avatar {
-    position: relative;
-    float: left;
-    width: 90px;
-    height: 90px;
-    margin: 2px;
-    border: 2px solid #cee2fd;
-    border-radius: 50%;
-}
-
-.rating-avatar img {
-    position: absolute;
-    width: 86px;
-    height: 86px;
-    border-radius: 50%;
-    object-fit: cover;
+    color: #fff;
 }
 
 .rating-user-info {
     position: relative;
     float: left;
-    width: 555px;
-    top: 25px; /*Before no rank info*/
-    padding: 0 20px;
+    width: 378px;
+    top: 25px;
+    padding: 0 5px;
 }
 
 .ratting-user-name {
-    width: 555px;
+    width: 378px;
     height: 40px;
     padding: 5px 0;
 }
@@ -253,18 +246,18 @@ input::selection {
     position: relative;
     float: left;
     width: 130px;
-    padding: 0 10px;
+    padding: 0;
     text-align: center;
 }
 
 .rating-user-level {
-    width: 120px;
+    width: 130px;
     height: 40px;
     padding: 5px 0;
 }
 
 .rating-battle-stat {
-    width: 120px;
+    width: 130px;
     height: 40px;
     padding: 5px 0;
 }
@@ -335,8 +328,8 @@ input::selection {
     box-sizing: border-box;
     float: left;
     width: 100%;
-    height: 180px;
-    padding: 10px 40px;
+    height: 220px;
+    padding: 60px 10px;
     font-size: 24px;
 }
 
@@ -423,9 +416,10 @@ input::selection {
 .charge-count {
     position: absolute;
     width: 140px;
-    top: 0;
+    top: 120px;
     font-size: 36px;
     text-align: center;
+    color: #fff;
 }
 
 .charge-btn {
@@ -444,22 +438,23 @@ input::selection {
 .store-item-info {
     position: relative;
     float: left;
-    width: 365px;
+    width: 140px;
     height: 160px;
-    padding: 0 20px;
+    padding: 0 10px;
     line-height: 145px;
 }
 
 .store-item-name {
-    width: 410px;
+    width: 140px;
     height: 160px;
     padding: 5px 0;
+    color: #fff;
 }
 
 .store-buy {
     position: relative;
     float: left;
-    width: 175px;
+    width: 135px;
     height: 60px;
     padding: 0 10px;
     text-align: center;
@@ -476,7 +471,7 @@ input::selection {
 
 .buy-btn {
     float: left;
-    width: 155px;
+    width: 115px;
     height: 33px;
     bottom: 20px;
 }

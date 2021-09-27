@@ -2,9 +2,9 @@ class PlayerShip {
     constructor(game, config) {
         this.game = game;
         
-        this.cellSize = 40;
-        this.marginX = 60;
-        this.marginY = 260;
+        this.cellSize = 52;
+        this.marginX = 110;
+        this.marginY = 180;
 
         this.type = config.Type;
         this.direction = config.Direction;
@@ -22,6 +22,8 @@ class PlayerShip {
     calcRenderSizes() {
         this.x = this.chords[0][0] * this.cellSize + this.marginX;
         this.y = this.chords[0][1] * this.cellSize + this.marginY;
+
+        console.log(this.x, this.y);
 
         this.width = this.coef * this.type; 
         this.height = this.coef;

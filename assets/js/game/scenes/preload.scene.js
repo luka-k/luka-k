@@ -13,6 +13,7 @@ class PreloadScene extends Scene {
     }
 
     create() {
+
         google.accounts.id.initialize({
             client_id: '313835682668-jinkjoq58qacurqmnmqrgnjn25fee46e.apps.googleusercontent.com',
             callback: this.handleCredentialResponse.bind(this)
@@ -22,11 +23,12 @@ class PreloadScene extends Scene {
     }
 
     handleCredentialResponse(response) {
-
         api.auth(response.credential);
         
         const intervalID = setInterval(() => {
             if (!api.user) return;
+
+            clearInterval(intervalID);
 
             this.loadMainScene();
             
@@ -35,8 +37,6 @@ class PreloadScene extends Scene {
             let modal = new AliasModal(this);
             
             modal.show();
-
-            clearInterval(intervalID);
         }, 100);
     }
 

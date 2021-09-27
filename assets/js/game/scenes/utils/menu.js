@@ -17,7 +17,7 @@ class Menu {
     }
 
     createMainMenu() {
-        this.infoBtn = this.game.add.tileSprite(70, 150, settings.menu.itemWidth, settings.menu.itemHeight, 'info-btn');
+        this.infoBtn = this.game.add.tileSprite(100, 1150, settings.menu.itemWidth, settings.menu.itemHeight, 'info-btn');
         this.infoBtn.setOrigin(0.5, 0);
         this.infoBtn.setInteractive({
             cursor: 'url(' + settings.cursors.pointerCursor + '), pointer'
@@ -32,12 +32,12 @@ class Menu {
         }, this);
 
         this.infoBtn.on('pointerdown', function (pointer, gameObject) {
-            modal = new GarageModal(api);
+            let info = new HangarInfo({api:api});
             
-            modal.show(); 
+            info.render(); 
         }, this);
 
-        this.shopBtn = this.game.add.tileSprite(70, 250, settings.menu.itemWidth, settings.menu.itemHeight, 'shop-btn');
+        this.shopBtn = this.game.add.tileSprite(360, 1150, settings.menu.itemWidth, settings.menu.itemHeight, 'shop-btn');
         this.shopBtn.setOrigin(0.5, 0);
         this.shopBtn.setInteractive({
             cursor: 'url(' + settings.cursors.pointerCursor + '), pointer'
@@ -52,12 +52,12 @@ class Menu {
         }, this);
 
         this.shopBtn.on('pointerdown', function (pointer, gameObject) {
-            modal = new ShopModal(api);
+            let info = new ShopInfo({api:api});
             
-            modal.show(); 
+            info.render(); 
         }, this);
 
-        this.ratingBtn = this.game.add.tileSprite(70, 360, settings.menu.itemWidth, settings.menu.itemHeight, 'rating-btn');
+        this.ratingBtn = this.game.add.tileSprite(620, 1150, settings.menu.itemWidth, settings.menu.itemHeight, 'rating-btn');
         this.ratingBtn.setOrigin(0.5, 0);
         this.ratingBtn.setInteractive({
             cursor: 'url(' + settings.cursors.pointerCursor + '), pointer'
@@ -72,9 +72,9 @@ class Menu {
         }, this);
 
         this.ratingBtn.on('pointerdown', function (pointer, gameObject) {
-            modal = new RatingModal(api);
+             let info = new RatingInfo({api:api});
             
-            modal.show(); 
+            info.render(); 
         }, this);
     }
 

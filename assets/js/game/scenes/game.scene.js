@@ -2,8 +2,6 @@ class GameScene extends Scene {
     constructor() {
         super('gameScene');
         
-        this.background = new GameBackground(this);
-
         this.menu = new Menu(this, {
             type: 'battle'
         });
@@ -18,7 +16,6 @@ class GameScene extends Scene {
     }
 
     create() {
-        this.background.create();
         this.menu.create();
         this.battle.create();
         this.socket.create();

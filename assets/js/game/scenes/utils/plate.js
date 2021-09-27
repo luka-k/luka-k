@@ -5,7 +5,7 @@ class Plate {
 
         this.cellSize = 52;
         this.marginX = 100;
-        this.marginY = type == "player" ? 250 : 730;
+        this.marginY = type == "player" ? 160 : 730;
 
         this.fieldTemplate = 'field';
         this.boomTemplate = 'boom';
@@ -34,7 +34,7 @@ class Plate {
         this.element.setOrigin(0, 0);
 
         const firstFrame = this.getFirstFrame();
-        const endFrame = firstFrame + 5;
+        const endFrame = firstFrame + 10;
 
         this.game.anims.create({
             key: 'boom-' + this.boomNumber,

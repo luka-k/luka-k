@@ -11,14 +11,34 @@
     padding: 0;
 }
 
+body {
+    background: no-repeat center/100% url("../img/background/space.png");
+}
+
 .body-wrap {
     position: relative;
-    width: 480px;
-    height: 987px;
+    width: 540px;
+    height: 960px;
     margin: 0 auto;
 }
 
 .game-wrap {
     position: relative;
+
+    border: 1px solid red;
 }
 
+#info {
+    /*display: none;*/
+
+    border: 1px solid blue;
+}
+
+.info-wrap {
+    position: absolute;
+    width: 540px;
+    height: 760px;
+    top: 100px;
+    left: 0;
+    background-blend-mode: overlay;
+}

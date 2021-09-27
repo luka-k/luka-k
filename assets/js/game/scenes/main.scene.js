@@ -2,7 +2,6 @@ class MainScene extends Scene {
     constructor() {
         super("mainScene");
 
-        this.background = new GameBackground(this);
         this.menu = new Menu(this, {
             type: 'main'
         });
@@ -11,7 +10,9 @@ class MainScene extends Scene {
     preload() {}
 
     create() {
-        this.background.create();
+        let info = new HangarInfo({api: api});
+            
+        info.render(); 
 
         this.menu.create();
 
